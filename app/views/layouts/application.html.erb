@@ -7,14 +7,15 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <%= render 'layouts/header' %>
   <nav>
     <% if user_signed_in? %>
       Logged in as <strong><%= current_user.email %></strong>.
       <%= link_to 'プロフィール変更', edit_user_registration_path , class: "lead" %> |
-      <%= link_to "LOG OUT ", destroy_user_session_path, method: :delete , class: "lead" %>
+      <%= link_to "LOG OUT", destroy_user_session_path, method: :delete , class: "lead" %>
     <% else %>
-      <%= link_to "SIGN IN", new_user_registration_path , class: "lead" %> |
-      <%= link_to "LOG IN", new_user_session_path , class: "lead" %>
+      <%= link_to "サインイン", new_user_registration_path , class: "lead" %> |
+      <%= link_to "ログイン", new_user_session_path , class: "lead" %>
     <% end %>
   </nav>
 
