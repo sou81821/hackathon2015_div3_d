@@ -11,4 +11,4 @@ Rails.application.config.assets.version = '1.0'
 # Rails.application.config.assets.precompile += %w( search.js )
 
 
-Rails.application.config.assets.precompile += %w( glyphicons-halflings.png glyphicons-halflings-white.png )
+Rails.application.config.assets.precompile += %w( bootstrap_override.scss glyphicons-halflings.png glyphicons-halflings-white.png bootstrap/glyphicons-halflings-regular.eot bootstrap/glyphicons-halflings-regular.woff bootstrap/glyphicons-halflings-regular.woff2 bootstrap/glyphicons-halflings-regular.ttf bootstrap/glyphicons-halflings-regular.svg)
