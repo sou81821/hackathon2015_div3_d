@@ -5,13 +5,23 @@ class ImageUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
-
-
-
   # Choose what kind of storage to use for this uploader:
   storage :file
   # storage :fog
-
+  img = MiniMagick::Image.open( params[:imgname] )
+  i = rand( 1..5 )
+  case i
+  when 1
+    img.implode "40"
+  when 2
+    img.blur "100x100"
+  when 3
+    img.wave "100x100"
+  when 4
+    img.swirl "70"
+  when 5
+    img.average
+  end
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
@@ -58,7 +68,8 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   def filename
     time = Time.now
-    name = time.strftime( '%Y%m%d%H%M%S' ) + '.jpg'
-    name.downcase
+    @name = time.strftime( '%Y%m%d%H%M%S' ) + '.jpg'
+    @name.downcase
   end
+
 end
