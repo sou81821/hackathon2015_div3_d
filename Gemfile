@@ -34,6 +34,13 @@ gem 'devise'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# Add By Hirofumi Saito @ 2015-08-28
+# Carrier Wave
+gem 'carrierwave'
+
+#Mini Magick
+gem 'mini_magick'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
