@@ -1,0 +1,7 @@
+<div class="field">
+  <%= form_for(@upload_image) do |f| %>
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+    <%= f.submit '送信' %>
+  <% end %>
+</div>
