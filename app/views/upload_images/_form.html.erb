@@ -1,4 +1,9 @@
 <div class="field">
+  <% if @upload_image.image? %>
+    <div class="thumbnail">
+      <%= image_tag @upload_image.image.url %>
+    </div>
+  <% end %><br>
   <%= form_for(@upload_image) do |f| %>
     <%= f.label :image %>
     <%= f.file_field :image %>
