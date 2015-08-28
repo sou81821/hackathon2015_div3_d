@@ -1,10 +1,11 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
-	<div class="navbar-inner", align="center">
+<header class="navbar navbar-fixed-top navbar-inverse margin: 0;" role="navigation" >
+	<div class="navbar-inner">
 		<div class="container">
 			<nav>
 				<ul class="nav pull-right">
-					<li><%= link_to 'ログイン', '#' %></li>
 					<li><%= link_to '新規ユーザー登録', '#' %></li>
+					<li><%= link_to 'ログイン', '#' %></li>
+					<li><%= link_to '使い方', '#' %></li>
 					<% if signed_in? %>
 						<li id="fat-menu" class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -19,8 +20,6 @@
 								</li>
 							</ul>
 						</li>
-					 <% else %>
-					 	<li><%= link_to "Sign in", '#' %></li>
 					 <% end %>
 				</ul>
 			</nav>
