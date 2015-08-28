@@ -6,8 +6,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
 
-  process :implode => 40
-  process :average
+
 
   # Choose what kind of storage to use for this uploader:
   storage :file
@@ -61,4 +60,5 @@ class ImageUploader < CarrierWave::Uploader::Base
     time = Time.now
     name = time.strftime( '%Y%m%d%H%M%S' ) + '.jpg'
     name.downcase
+  end
 end
