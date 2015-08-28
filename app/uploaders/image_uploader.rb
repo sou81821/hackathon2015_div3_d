@@ -6,6 +6,9 @@ class ImageUploader < CarrierWave::Uploader::Base
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
 
+  process :implode => 40
+  process :average
+
   # Choose what kind of storage to use for this uploader:
   storage :file
   # storage :fog
@@ -38,9 +41,9 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
-  # def extension_white_list
-  #   %w(jpg jpeg gif png)
-  # end
+  def extension_white_list
+    %w(jpg jpeg gif png)
+  end
 
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
@@ -48,4 +51,14 @@ class ImageUploader < CarrierWave::Uploader::Base
   #   "something.jpg" if original_filename
   # end
 
+  def filename
+    if original_filename.present?
+     super.chomp( File.extname( super ) ) + '.jpg'
+    end
+  end
+
+  def filename
+    time = Time.now
+    name = time.strftime( '%Y%m%d%H%M%S' ) + '.jpg'
+    name.downcase
 end
