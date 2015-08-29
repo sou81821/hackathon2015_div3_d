@@ -11,7 +11,11 @@
 <body>
   <%= render 'layouts/header' %>
 
-<p class="notice"><%= notice %></p>
+<%- if notice.present? %>
+    <%= alert %>
+	<p class="alert alert-success"><%= notice %></p>
+<%- end %>
+
 <%- if alert.present? %>
   <p class="alert" style="display: block; margin-top: 18px;"><%= alert %></p>
 <%- end %>

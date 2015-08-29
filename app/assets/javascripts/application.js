@@ -11,6 +11,17 @@
 // about supported directives.
 //
 //= require jquery
+//= require bootstrap.js
+//= require bootstrap.min.js
+//= require data-confirm-modal
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$("ログアウト").addEvent("click", function(){
+  var SM = new SimpleModal({"btn_ok":"Alert button"});
+      SM.show({
+        "title":"Title",
+        "contents":"Your message..."
+      });
+});
