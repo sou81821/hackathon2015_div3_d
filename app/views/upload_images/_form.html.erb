@@ -7,6 +7,6 @@
   <%= form_for(@upload_image) do |f| %>
     <%= f.label :image %>
     <%= f.file_field :image %>
-    <%= f.submit '送信' %>
+    <%= f.submit '送信', class: 'btn btn-large btn-primary lead' %>
   <% end %>
 </div>
