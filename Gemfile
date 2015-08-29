@@ -42,7 +42,7 @@ gem 'devise'
 gem 'carrierwave'
 
 #Mini Magick
-gem 'mini_magick'
+gem 'rmagick'
 
 gem 'pry'
 group :development, :test do
