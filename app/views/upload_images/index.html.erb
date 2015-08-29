@@ -1,2 +1,11 @@
-<h1>UploadImages#index</h1>
-<p>Find me in app/views/upload_images/index.html.erb</p>
+<h1 class="lead">アップロード画像一覧</h1>
+
+<p>
+  <strong>Image:</strong>
+  <tbody>
+    <% @upload_image.each do |upload_image| %>
+    <%= upload_image.image %>
+    <%= image_tag upload_image.image %>
+    <% end %>
+  </tbody>
+</p>

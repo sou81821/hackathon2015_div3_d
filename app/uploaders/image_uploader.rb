@@ -1,5 +1,4 @@
 class ImageUploader < CarrierWave::Uploader::Base
-	#MiniMagick Include
 	include CarrierWave::MiniMagick
 	#どんな画像もjpgに変換
 	process :convert => 'jpg'
