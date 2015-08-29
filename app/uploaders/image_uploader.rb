@@ -1,6 +1,10 @@
 class ImageUploader < CarrierWave::Uploader::Base
+<<<<<<< HEAD
 	#MiniMagick Include
 	include CarrierWave::RMagick
+=======
+	include CarrierWave::MiniMagick
+>>>>>>> e6fc257710e29a0af651801af0a2b6260111aa47
 	#どんな画像もjpgに変換
 	process :convert => 'jpg'
 	process :do_stuff => [ 1, 100, 200 ]

@@ -1,5 +1,8 @@
 class UploadImagesController < ApplicationController
+  before_action :set_upload_image, only: [:show, :edit, :update]
+
   def index
+    @upload_image = UploadImage.all
   end
 
   def new
@@ -23,6 +26,10 @@ class UploadImagesController < ApplicationController
   end
 
   def update
+  end
+
+  def set_upload_image
+    @upload_image = UploadImage.find(params[:id])
   end
 
   def upload_image_params
