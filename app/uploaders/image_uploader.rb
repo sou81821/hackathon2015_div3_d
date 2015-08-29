@@ -1,7 +1,13 @@
 class ImageUploader < CarrierWave::Uploader::Base
+<<<<<<< HEAD
+	#MiniMagick Include
+	include CarrierWave::RMagick
+=======
 	include CarrierWave::MiniMagick
+>>>>>>> e6fc257710e29a0af651801af0a2b6260111aa47
 	#どんな画像もjpgに変換
 	process :convert => 'jpg'
+	process :do_stuff => [ 1, 100, 200 ]
 	#ストレージタイプ
 	storage :file
 	#保存先を指定
@@ -18,25 +24,17 @@ class ImageUploader < CarrierWave::Uploader::Base
 	end
 	#ファイルネームを日付で保存
 	def filename
-		time = Time.now
-		name = time.strftime( '%Y%m%d%H%M%s' ) + '.jpg'
-		name.downcase
+	time = Time.now
+	name = time.strftime( '%Y%m%d%H%M%s' ) + '.jpg'
+	name.downcase
+	end
+	#binding.pry
+	def do_stuff( dot, waveheight, wavewidth )
+		manipulate! do |img|
+			img = img.implode( dot )
+			img = img.wave( waveheight, wavewidth )
+		end
+	end
 
-	#画像をImageMagickで変換
-	i = rand( 1..5 )
-	case i
-	when 1
-		cmd = "mogrify -implode 40 " + name
-	when 2
-		cmd = "mogrify -average " + name
-	when 3
-		cmd = "mogrify -edge 15" + name
-	when 4
-		cmd = "mogrify -swirl 400 " + name
-	when 5
-		cmd = "mogrify -wave 20x20 " + name
-	else
-	end
-	system( cmd )
-	end
+
 end
